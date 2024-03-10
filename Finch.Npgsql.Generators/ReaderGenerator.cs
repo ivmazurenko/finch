@@ -32,7 +32,9 @@ public static class ReaderGenerator
                     else if (p.Type.ToDisplayString() == "string")
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";
                     else
-                        return "// NOT IMPLEMENTED";
+                    if (p.Type.ToDisplayString() == "bool")
+                        return $@"         item.{p.Name} = Convert.ToBoolean(reader[""{p.Name}""]);";
+                    return "// NOT IMPLEMENTED";
                 });
 
 

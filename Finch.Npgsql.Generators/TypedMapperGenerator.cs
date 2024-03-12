@@ -47,9 +47,9 @@ public static class ReaderGenerator
 
                   namespace {{namespaceName}};
 
-                  partial class Mapping
+                  internal partial class TypedMapper
                   {
-                      public static void Read(
+                      public static void Map(
                           {{namespaceName}}.{{className}} item,
                           NpgsqlDataReader reader)
                       {
@@ -58,7 +58,7 @@ public static class ReaderGenerator
                   }
                   """;
 
-            context.AddSource($"Reader.{className}.g.cs", SourceText.From(code, Encoding.UTF8));
+            context.AddSource($"TypedMapper.{className}.g.cs", SourceText.From(code, Encoding.UTF8));
         }
     }
 }

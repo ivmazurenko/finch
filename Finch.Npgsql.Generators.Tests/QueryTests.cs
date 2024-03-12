@@ -5,7 +5,7 @@ namespace Finch.Npgsql.Generators.Tests;
 
 public class QueryTests
 {
-    private NpgsqlConnection _connection = NpgsqlConnectionProvider.Create();
+    private readonly NpgsqlConnection _connection = NpgsqlConnectionProvider.Create();
 
     [Fact]
     public void QueriesSeriesAsInt()

@@ -28,10 +28,13 @@ public static class ReaderGenericGenerator
 
             var className = classDeclarationSyntax.Identifier.Text;
 
-            items.Add($"""
-                               if(typeof(T) == typeof({namespaceName}.{className}))
-                                   Mapping.Read(item as {namespaceName}.{className}, reader);
-                       """);
+            items.Add($$"""
+                                if(typeof(T) == typeof({{namespaceName}}.{{className}}))
+                                {
+                                    TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
+                                    return;
+                                }
+                        """);
         }
 
         var code =
@@ -44,9 +47,9 @@ public static class ReaderGenericGenerator
 
               namespace {{allNamespace}};
 
-              internal class ReaderGeneric
+              internal class GenericMapper
               {
-                  public static void Read<T>(T item, NpgsqlDataReader reader)
+                  public static void Map<T>(T item, NpgsqlDataReader reader)
                   {
               {{string.Join("\n", items)}}
                   }
@@ -54,6 +57,6 @@ public static class ReaderGenericGenerator
 
               """;
 
-        context.AddSource("ReaderGeneric.g.cs", SourceText.From(code, Encoding.UTF8));
+        context.AddSource("GenericMapper.g.cs", SourceText.From(code, Encoding.UTF8));
     }
 }

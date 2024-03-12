@@ -43,7 +43,8 @@ public class RootGenerator : IIncrementalGenerator
     private void GenerateCode(SourceProductionContext context, Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations)
     {
-        NpgsqlConnectionExtensionsGenerator.Generate(context, compilation, classDeclarations);
+        NpgsqlConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations);
+        NpgsqlConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations);
         ReaderGenericGenerator.Generate(context, compilation, classDeclarations);
         ReaderGenerator.Generate(context, compilation, classDeclarations);
     }

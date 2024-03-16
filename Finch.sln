@@ -8,9 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Npgsql.Generators.Tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Finch.Npgsql.MockingDatabase", "Finch.Npgsql.MockingDatabase", "{179A5444-5B08-4555-9E54-CFC8401B62E2}"
 	ProjectSection(SolutionItems) = preProject
-		Finch.Npgsql.MockingDatabase\Dockerfile = Finch.Npgsql.MockingDatabase\Dockerfile
-		Finch.Npgsql.MockingDatabase\init.sql = Finch.Npgsql.MockingDatabase\init.sql
-		Finch.Npgsql.MockingDatabase\mock_database.sh = Finch.Npgsql.MockingDatabase\mock_database.sh
+		Finch.Npgsql.MockingDatabase\Dockerfile = Finch.Npgsql.MockingDatabase\mock_database_postgre.dockerfile
+		Finch.Npgsql.MockingDatabase\init.sql = Finch.Npgsql.MockingDatabase\mock_database_postgre.sql
+		Finch.Npgsql.MockingDatabase\mock_database.sh = Finch.Npgsql.MockingDatabase\mock_database_postgre.sh
 	EndProjectSection
 EndProject
 Global

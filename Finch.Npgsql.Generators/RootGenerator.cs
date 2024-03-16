@@ -45,6 +45,7 @@ public class RootGenerator : IIncrementalGenerator
     {
         NpgsqlConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations);
         NpgsqlConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations);
+        NpgsqlConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(context, compilation, classDeclarations);
         ReaderGenericGenerator.Generate(context, compilation, classDeclarations);
         ReaderGenerator.Generate(context, compilation, classDeclarations);
     }

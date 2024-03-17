@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Finch.Npgsql.Generators;
+namespace Finch.Sqlserver.Generators;
 
 [Generator]
 public class RootGenerator : IIncrementalGenerator
@@ -33,7 +33,7 @@ public class RootGenerator : IIncrementalGenerator
 
             var attributeName = attributeSymbol.ContainingType.ToDisplayString();
 
-            if (attributeName == "Finch.Npgsql.Abstractions.GenerateNpgsqlConnectionExtensionsAttribute")
+            if (attributeName == "Finch.Abstractions.Sqlserver.GenerateSqlserverConnectionExtensionsAttribute")
                 return (classDeclarationSyntax, true);
         }
 
@@ -43,9 +43,9 @@ public class RootGenerator : IIncrementalGenerator
     private void GenerateCode(SourceProductionContext context, Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations)
     {
-        NpgsqlConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations);
-        NpgsqlConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations);
-        NpgsqlConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(context, compilation, classDeclarations);
+        SqlConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations);
+        SqlConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations);
+        SqlConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(context, compilation, classDeclarations);
         ReaderGenericGenerator.Generate(context, compilation, classDeclarations);
         ReaderGenerator.Generate(context, compilation, classDeclarations);
     }

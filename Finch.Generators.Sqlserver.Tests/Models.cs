@@ -1,4 +1,4 @@
-using Finch.Sqlserver.Abstractions;
+using Finch.Abstractions.Sqlserver;
 
 namespace Finch.Sqlserver.Generators.Tests;
 

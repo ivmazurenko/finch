@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+        <PackageReference Include="Npgsql" Version="8.0.2"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
         <PackageReference Include="xunit" Version="2.6.4"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
@@ -16,8 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Finch.Sqlserver.Abstractions\Finch.Sqlserver.Abstractions.csproj" />
-        <ProjectReference Include="..\Finch.Sqlserver.Generators\Finch.Sqlserver.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\Finch.Abstractions.Npgsql\Finch.Abstractions.Npgsql.csproj" />
+        <ProjectReference Include="..\Finch.Generators.Npgsql\Finch.Generators.Npgsql.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
 </Project>

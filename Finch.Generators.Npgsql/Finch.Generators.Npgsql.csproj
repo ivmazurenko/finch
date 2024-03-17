@@ -8,7 +8,7 @@
 
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
-        <PackageId>Finch.Npgsql.Generators</PackageId>
+        <PackageId>Finch.Generators.Npgsql</PackageId>
     </PropertyGroup>
 
     <ItemGroup>

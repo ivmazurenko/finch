@@ -1,7 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Xunit;
 
-namespace Finch.Sqlserver.Generators.Tests;
+namespace Finch.Generators.Sqlserver.Tests;
 
 public class QueryTests
 {

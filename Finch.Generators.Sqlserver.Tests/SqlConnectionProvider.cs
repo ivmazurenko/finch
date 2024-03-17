@@ -1,7 +1,7 @@
 
 using Microsoft.Data.SqlClient;
 
-namespace Finch.Sqlserver.Generators.Tests;
+namespace Finch.Generators.Sqlserver.Tests;
 
 public static class SqlConnectionProvider
 {

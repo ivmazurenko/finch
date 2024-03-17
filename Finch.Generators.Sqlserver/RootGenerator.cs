@@ -40,13 +40,30 @@ public class RootGenerator : IIncrementalGenerator
         return (classDeclarationSyntax, false);
     }
 
-    private void GenerateCode(SourceProductionContext context, Compilation compilation,
+    private static void GenerateCode(
+        SourceProductionContext context,
+        Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations)
     {
-        SqlConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations);
-        SqlConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations);
-        SqlConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(context, compilation, classDeclarations);
-        ReaderGenericGenerator.Generate(context, compilation, classDeclarations);
-        ReaderGenerator.Generate(context, compilation, classDeclarations);
+        const string readerType = "global::Microsoft.Data.SqlClient.SqlDataReader";
+        const string commandType = "global::Microsoft.Data.SqlClient.SqlCommand";
+        const string connectionType = "global::Microsoft.Data.SqlClient.SqlConnection";
+        const string parameterType = "global::Microsoft.Data.SqlClient.SqlParameter";
+        const string prefix = "Sqlserver";
+
+        ConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations, commandType, connectionType, prefix);
+        ConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations,  commandType, connectionType, prefix);
+
+        ConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(
+            context,
+            compilation,
+            classDeclarations,
+            commandType,
+            connectionType,
+            parameterType,
+            prefix);
+
+        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, readerType);
+        ReaderGenerator.Generate(context, compilation, classDeclarations, readerType);
     }
 }

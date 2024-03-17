@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using Finch.Generators.Sqlserver;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -40,13 +41,43 @@ public class RootGenerator : IIncrementalGenerator
         return (classDeclarationSyntax, false);
     }
 
-    private void GenerateCode(SourceProductionContext context, Compilation compilation,
+    private static void GenerateCode(
+        SourceProductionContext context,
+        Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations)
     {
-        NpgsqlConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations);
-        NpgsqlConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations);
-        NpgsqlConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(context, compilation, classDeclarations);
-        ReaderGenericGenerator.Generate(context, compilation, classDeclarations);
-        ReaderGenerator.Generate(context, compilation, classDeclarations);
+        const string readerType = "global::Npgsql.NpgsqlDataReader";
+        const string commandType = "global::Npgsql.NpgsqlCommand";
+        const string connectionType = "global::Npgsql.NpgsqlConnection";
+        const string parameterType = "global::Npgsql.NpgsqlParameter";
+        const string prefix = "Npgsql";
+
+        ConnectionExtensionsGenerator.GenerateQuery(
+            context,
+            compilation,
+            classDeclarations,
+            commandType,
+            connectionType,
+            prefix);
+
+        ConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(
+            context,
+            compilation,
+            classDeclarations,
+            commandType,
+            connectionType,
+            prefix);
+
+        ConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(
+            context,
+            compilation,
+            classDeclarations,
+            commandType,
+            connectionType,
+            parameterType,
+            prefix);
+
+        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, readerType);
+        ReaderGenerator.Generate(context, compilation, classDeclarations, readerType);
     }
 }

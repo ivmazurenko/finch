@@ -1,6 +1,6 @@
 using Finch.Abstractions.Npgsql;
 
-namespace Finch.Npgsql.Generators.Tests;
+namespace Finch.Generators.Npgsql.Tests;
 
 [GenerateNpgsqlConnectionExtensions]
 public class TbUser

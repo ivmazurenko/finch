@@ -5,12 +5,15 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Npgsql;
+namespace Finch.Generators.Sqlserver;
 
 public static class ReaderGenericGenerator
 {
-    public static void Generate(SourceProductionContext context, Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations)
+    public static void Generate(
+        SourceProductionContext context,
+        Compilation compilation,
+        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        string dataReaderType)
     {
         var items = new List<string>();
 
@@ -28,13 +31,14 @@ public static class ReaderGenericGenerator
 
             var className = classDeclarationSyntax.Identifier.Text;
 
-            items.Add($$"""
-                                if(typeof(T) == typeof({{namespaceName}}.{{className}}))
-                                {
-                                    TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
-                                    return;
-                                }
-                        """);
+            items.Add(
+                $$"""
+                          if(typeof(T) == typeof({{namespaceName}}.{{className}}))
+                          {
+                              TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
+                              return;
+                          }
+                  """);
         }
 
         var code =
@@ -43,13 +47,12 @@ public static class ReaderGenericGenerator
 
               using System;
               using System.Collections.Generic;
-              using Npgsql;
 
               namespace {{allNamespace}};
 
               internal class GenericMapper
               {
-                  public static void Map<T>(T item, NpgsqlDataReader reader)
+                  public static void Map<T>(T item, {{dataReaderType}} reader)
                   {
               {{string.Join("\n", items)}}
                   }

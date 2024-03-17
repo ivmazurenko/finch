@@ -1,6 +1,6 @@
 using Finch.Abstractions.Sqlserver;
 
-namespace Finch.Sqlserver.Generators.Tests;
+namespace Finch.Generators.Sqlserver.Tests;
 
 [GenerateSqlserverConnectionExtensions]
 public class TbUser

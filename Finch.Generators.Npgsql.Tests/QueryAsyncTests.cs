@@ -1,7 +1,7 @@
 using Npgsql;
 using Xunit;
 
-namespace Finch.Npgsql.Generators.Tests;
+namespace Finch.Generators.Npgsql.Tests;
 
 public class QueryAsyncTests
 {

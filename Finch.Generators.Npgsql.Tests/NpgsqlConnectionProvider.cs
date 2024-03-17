@@ -1,6 +1,6 @@
 using Npgsql;
 
-namespace Finch.Npgsql.Generators.Tests;
+namespace Finch.Generators.Npgsql.Tests;
 
 public static class NpgsqlConnectionProvider
 {

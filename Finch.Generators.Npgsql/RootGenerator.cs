@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Finch.Npgsql.Generators;
+namespace Finch.Generators.Npgsql;
 
 [Generator]
 public class RootGenerator : IIncrementalGenerator

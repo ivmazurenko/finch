@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Npgsql.Generators;
+namespace Finch.Generators.Npgsql;
 
 public static class ReaderGenericGenerator
 {

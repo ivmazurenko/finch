@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Sqlserver.Generators;
+namespace Finch.Generators.Sqlserver;
 
 public static class SqlConnectionExtensionsQueryAsyncWithParameterGenerator
 {

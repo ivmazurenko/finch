@@ -43,3 +43,17 @@ INSERT INTO tb_value_bit_nullable (value)
 VALUES (null),
        (1),
        (0);
+
+
+CREATE TABLE tb_different_integer_nullable
+(
+    value_smallint smallint,
+    value_integer  integer,
+    value_bigint   bigint
+);
+
+INSERT INTO tb_different_integer_nullable (value_smallint, value_integer, value_bigint)
+VALUES (NULL, 2, 4),
+       (1, NULL, 4),
+       (1, 2, NULL),
+       (0, 0, 0);

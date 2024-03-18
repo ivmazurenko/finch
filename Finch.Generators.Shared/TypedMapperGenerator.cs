@@ -33,15 +33,44 @@ public static class ReaderGenerator
                 {
                     if (p.Type.ToDisplayString() == "int")
                         return $@"         item.{p.Name} = Convert.ToInt32(reader[""{p.Name}""]);";
+                    else if (p.Type.ToDisplayString() == "int?")
+                        return $"""
+                                        if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
+                                            item.{p.Name} = null;
+                                        else
+                                            item.{p.Name} = Convert.ToInt32(reader["{p.Name}"]);
+                                """;
+                    
+                    if (p.Type.ToDisplayString() == "short")
+                        return $@"         item.{p.Name} = Convert.ToInt16(reader[""{p.Name}""]);";
+                    else if (p.Type.ToDisplayString() == "short?")
+                        return $"""
+                                        if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
+                                            item.{p.Name} = null;
+                                        else
+                                            item.{p.Name} = Convert.ToInt16(reader["{p.Name}"]);
+                                """;
+                    
+                    if (p.Type.ToDisplayString() == "long")
+                        return $@"         item.{p.Name} = Convert.ToInt64(reader[""{p.Name}""]);";
+                    else if (p.Type.ToDisplayString() == "long?")
+                        return $"""
+                                        if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
+                                            item.{p.Name} = null;
+                                        else
+                                            item.{p.Name} = Convert.ToInt64(reader["{p.Name}"]);
+                                """;
+                    
                     else if (p.Type.ToDisplayString() == "string")
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";
+
                     else if (p.Type.ToDisplayString() == "bool")
                         return $@"         item.{p.Name} = Convert.ToBoolean(reader[""{p.Name}""]);";
                     else if (p.Type.ToDisplayString() == "bool?")
                         return $"""
                                         if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
                                             item.{p.Name} = null;
-                                        else            
+                                        else
                                             item.{p.Name} = Convert.ToBoolean(reader["{p.Name}"]);
                                 """;
                     return $"{p.Type}";
@@ -61,7 +90,7 @@ public static class ReaderGenerator
                           {{namespaceName}}.{{className}} item,
                           {{dataReaderType}} reader)
                       {
-                  {{string.Join("\n", methodBody)}}
+                  {{string.Join("\n\n", methodBody)}}
                       }
                   }
                   """;

@@ -26,3 +26,11 @@ public class TbValueBitNullable
 {
     public bool? value { get; set; }
 }
+
+[GenerateNpgsqlConnectionExtensions]
+public class TbDifferentIntegerNullable
+{
+    public short? value_smallint { get; set; }
+    public int? value_integer { get; set; }
+    public long? value_bigint { get; set; }
+}

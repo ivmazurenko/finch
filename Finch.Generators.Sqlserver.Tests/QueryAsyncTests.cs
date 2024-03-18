@@ -29,5 +29,29 @@ public class QueryAsyncTests
         Assert.True(items[1].value);
         Assert.False(items[2].value);
     }
+    
+    [Fact]
+    public async Task QueriesDifferentIntegersWithNulls()
+    {
+        var items = await _connection.QueryAsync<TbDifferentIntegerNullable>("select * from tb_different_integer_nullable");
+
+        Assert.Equal(4, items.Count);
+        Assert.Null(items[0].value_smallint);
+        Assert.Equal(2, items[0].value_integer);
+        Assert.Equal(4, items[0].value_bigint);
+
+        Assert.Equal((short)1, items[1].value_smallint);
+        Assert.Null(items[1].value_integer);
+        Assert.Equal(4, items[1].value_bigint);
+
+        Assert.Equal((short)1, items[2].value_smallint);
+        Assert.Equal(2, items[2].value_integer);
+        Assert.Null(items[2].value_bigint);
+
+
+        Assert.Equal((short)0, items[3].value_smallint);
+        Assert.Equal(0, items[3].value_integer);
+        Assert.Equal(0, items[3].value_bigint);
+    }
 }
 

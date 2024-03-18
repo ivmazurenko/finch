@@ -5,7 +5,7 @@ namespace Finch.Generators.Sqlserver.Tests;
 
 public class QueryTests
 {
-    private readonly SqlConnection _connection = SqlConnectionProvider.Create();
+    private readonly SqlConnection _connection = ConnectionProvider.Create();
 
     [Fact]
     public void QueriesSeriesAsInt()

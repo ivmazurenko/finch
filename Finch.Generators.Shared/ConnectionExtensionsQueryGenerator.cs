@@ -44,7 +44,7 @@ public static class ConnectionExtensionsGenerator
                                  {
                                      T item = new T();
                          
-                                     GenericMapper.Map(item, reader);
+                                     {{prefix}}GenericMapper.Map(item, reader);
                                      items.Add(item);
                                  }
                                  

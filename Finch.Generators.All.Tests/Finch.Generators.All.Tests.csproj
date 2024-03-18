@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -6,7 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Npgsql" Version="8.0.2"/>
         <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0"/>
+        <PackageReference Include="System.Data.SQLite" Version="1.0.118"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
         <PackageReference Include="xunit" Version="2.7.0"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
@@ -16,7 +18,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj"/>
+        <ProjectReference Include="..\Finch.Abstractions.Npgsql\Finch.Abstractions.Npgsql.csproj"/>
+        <ProjectReference Include="..\Finch.Abstractions.Sqlite\Finch.Abstractions.Sqlite.csproj" />
+        <ProjectReference Include="..\Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj" />
+        <ProjectReference Include="..\Finch.Generators.Npgsql\Finch.Generators.Npgsql.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\Finch.Generators.Sqlite\Finch.Generators.Sqlite.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
         <ProjectReference Include="..\Finch.Generators.Sqlserver\Finch.Generators.Sqlserver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
         <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj" />
     </ItemGroup>

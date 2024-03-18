@@ -5,7 +5,7 @@ namespace Finch.Generators.Sqlserver.Tests;
 
 public class QueryAsyncTests
 {
-    private readonly SqlConnection _connection = SqlConnectionProvider.Create();
+    private readonly SqlConnection _connection = ConnectionProvider.Create();
 
     [Fact]
     public async Task QueriesSeriesAsInt()

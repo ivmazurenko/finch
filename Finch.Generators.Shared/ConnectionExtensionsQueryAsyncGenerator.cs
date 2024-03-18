@@ -46,7 +46,7 @@ public static class ConnectionExtensionsQueryAsyncGenerator
                           {
                               T item = new T();
                   
-                              GenericMapper.Map(item, reader);
+                              {{prefix}}GenericMapper.Map(item, reader);
                               items.Add(item);
                           }
                           

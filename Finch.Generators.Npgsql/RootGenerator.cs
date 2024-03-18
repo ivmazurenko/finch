@@ -77,7 +77,7 @@ public class RootGenerator : IIncrementalGenerator
             parameterType,
             prefix);
 
-        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, readerType);
-        ReaderGenerator.Generate(context, compilation, classDeclarations, readerType);
+        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, readerType, prefix);
+        ReaderGenerator.Generate(context, compilation, classDeclarations, readerType, prefix);
     }
 }

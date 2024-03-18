@@ -33,7 +33,7 @@ public class RootGenerator : IIncrementalGenerator
 
             var attributeName = attributeSymbol.ContainingType.ToDisplayString();
 
-            if (attributeName == "Finch.Abstractions.Npgsql.GenerateNpgsqlConnectionExtensionsAttribute")
+            if (attributeName == "Finch.Abstractions.Sqlite.GenerateSqliteConnectionExtensionsAttribute")
                 return (classDeclarationSyntax, true);
         }
 
@@ -76,7 +76,7 @@ public class RootGenerator : IIncrementalGenerator
             parameterType,
             prefix);
 
-        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, readerType);
-        ReaderGenerator.Generate(context, compilation, classDeclarations, readerType);
+        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, readerType, prefix);
+        ReaderGenerator.Generate(context, compilation, classDeclarations, readerType, prefix);
     }
 }

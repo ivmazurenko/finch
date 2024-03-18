@@ -13,7 +13,8 @@ public static class ReaderGenericGenerator
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations,
-        string dataReaderType)
+        string dataReaderType,
+        string prefix)
     {
         var items = new List<string>();
 
@@ -35,7 +36,7 @@ public static class ReaderGenericGenerator
                 $$"""
                           if(typeof(T) == typeof({{namespaceName}}.{{className}}))
                           {
-                              TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
+                              {{prefix}}TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
                               return;
                           }
                   """);
@@ -50,7 +51,7 @@ public static class ReaderGenericGenerator
 
               namespace {{allNamespace}};
 
-              internal class GenericMapper
+              internal class {{prefix}}GenericMapper
               {
                   public static void Map<T>(T item, {{dataReaderType}} reader)
                   {
@@ -60,6 +61,6 @@ public static class ReaderGenericGenerator
 
               """;
 
-        context.AddSource("GenericMapper.g.cs", SourceText.From(code, Encoding.UTF8));
+        context.AddSource($"{prefix}GenericMapper.g.cs", SourceText.From(code, Encoding.UTF8));
     }
 }

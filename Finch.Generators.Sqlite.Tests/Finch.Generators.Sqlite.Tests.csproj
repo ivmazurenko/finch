@@ -18,6 +18,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Finch.Abstractions.Sqlite\Finch.Abstractions.Sqlite.csproj"/>
         <ProjectReference Include="..\Finch.Generators.Sqlite\Finch.Generators.Sqlite.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj" />
     </ItemGroup>
 
 </Project>

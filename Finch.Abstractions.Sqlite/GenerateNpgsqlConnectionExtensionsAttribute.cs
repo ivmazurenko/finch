@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Finch.Abstractions.Npgsql;
+namespace Finch.Abstractions.Sqlite;
 
 [AttributeUsage(AttributeTargets.Class)]
-public class GenerateNpgsqlConnectionExtensionsAttribute : Attribute;
+public class GenerateSqliteConnectionExtensionsAttribute : Attribute;

@@ -6,13 +6,7 @@ public static class ConnectionProvider
 {
     public static SQLiteConnection Create()
     {
-        var databasePath = Path.Combine(
-            Solution.SolutionRootPath,
-            "MockingDatabase",
-            "mock_database_sqlite.db"
-        );
-
-        var connectionString = $"Data Source={databasePath};Version=3;";
+        var connectionString = Finch.Tests.Shared.Constants.SqliteConnectionString;
         var connection = new SQLiteConnection(connectionString);
         return connection;
     }

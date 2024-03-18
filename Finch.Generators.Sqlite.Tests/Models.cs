@@ -1,21 +1,21 @@
-using Finch.Abstractions.Npgsql;
+using Finch.Abstractions.Sqlite;
 
 namespace Finch.Generators.Sqlite.Tests;
 
-[GenerateNpgsqlConnectionExtensions]
+[GenerateSqliteConnectionExtensions]
 public class TbUser
 {
     public int id { get; set; }
     public string name { get; set; }
 }
 
-[GenerateNpgsqlConnectionExtensions]
+[GenerateSqliteConnectionExtensions]
 public class TbValueVarchar100
 {
     public string value { get; set; }
 }
 
-[GenerateNpgsqlConnectionExtensions]
+[GenerateSqliteConnectionExtensions]
 public class TbValueBit
 {
     public bool value { get; set; }

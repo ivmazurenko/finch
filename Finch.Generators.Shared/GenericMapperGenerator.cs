@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlite;
+namespace Finch.Generators.Shared;
 
 public static class ReaderGenericGenerator
 {
@@ -13,8 +13,7 @@ public static class ReaderGenericGenerator
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations,
-        string dataReaderType,
-        string prefix)
+        DatabaseSpecificInfo info)
     {
         var items = new List<string>();
 
@@ -36,7 +35,7 @@ public static class ReaderGenericGenerator
                 $$"""
                           if(typeof(T) == typeof({{namespaceName}}.{{className}}))
                           {
-                              {{prefix}}TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
+                              {{info.prefix}}TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
                               return;
                           }
                   """);
@@ -51,9 +50,9 @@ public static class ReaderGenericGenerator
 
               namespace {{allNamespace}};
 
-              internal class {{prefix}}GenericMapper
+              internal class {{info.prefix}}GenericMapper
               {
-                  public static void Map<T>(T item, {{dataReaderType}} reader)
+                  public static void Map<T>(T item, {{info.readerType}} reader)
                   {
               {{string.Join("\n", items)}}
                   }
@@ -61,6 +60,6 @@ public static class ReaderGenericGenerator
 
               """;
 
-        context.AddSource($"{prefix}GenericMapper.g.cs", SourceText.From(code, Encoding.UTF8));
+        context.AddSource($"{info.prefix}GenericMapper.g.cs", SourceText.From(code, Encoding.UTF8));
     }
 }

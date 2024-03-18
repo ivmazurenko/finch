@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlite;
+namespace Finch.Generators.Shared;
 
 public static class ConnectionExtensionsQueryAsyncGenerator
 {
@@ -12,9 +12,7 @@ public static class ConnectionExtensionsQueryAsyncGenerator
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations,
-        string commandType,
-        string connectionType,
-        string prefix)
+        DatabaseSpecificInfo info)
     {
         foreach (var classDeclarationSyntax in classDeclarations)
         {
@@ -29,10 +27,10 @@ public static class ConnectionExtensionsQueryAsyncGenerator
 
                   namespace {{namespaceName}};
 
-                  public static partial class {{prefix}}ConnectionExtensions
+                  public static partial class {{info.prefix}}ConnectionExtensions
                   {
                       public static async global::System.Threading.Tasks.Task<global::System.Collections.Generic.List<T>> QueryAsync<T>(
-                          this {{connectionType}} connection,
+                          this {{info.connectionType}} connection,
                           string sql,
                           CancellationToken cancellationToken = default)
                           where T : new()
@@ -40,13 +38,13 @@ public static class ConnectionExtensionsQueryAsyncGenerator
                           await connection.OpenAsync(cancellationToken);
                   
                           var items = new global::System.Collections.Generic.List<T>();
-                          await using var command = new {{commandType}}(sql, connection);
+                          await using var command = new {{info.commandType}}(sql, connection);
                           await using var reader = await command.ExecuteReaderAsync(cancellationToken);
                           while (await reader.ReadAsync(cancellationToken))
                           {
                               T item = new T();
                   
-                              {{prefix}}GenericMapper.Map(item, reader);
+                              {{info.prefix}}GenericMapper.Map(item, reader);
                               items.Add(item);
                           }
                           
@@ -54,7 +52,7 @@ public static class ConnectionExtensionsQueryAsyncGenerator
                       }
                   }
                   """;
-            context.AddSource($"{prefix}ConnectionExtensions.QueryAsync.g.cs", SourceText.From(code, Encoding.UTF8));
+            context.AddSource($"{info.prefix}ConnectionExtensions.QueryAsync.g.cs", SourceText.From(code, Encoding.UTF8));
             break;
         }
     }

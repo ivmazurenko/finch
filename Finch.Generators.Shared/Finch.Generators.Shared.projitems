@@ -13,6 +13,8 @@
         <Compile Include="$(MSBuildThisFileDirectory)ConnectionExtensionsQueryAsyncGenerator.cs"/>
         <Compile Include="$(MSBuildThisFileDirectory)ConnectionExtensionsQueryAsyncWithParameterGenerator.cs"/>
         <Compile Include="$(MSBuildThisFileDirectory)ConnectionExtensionsQueryGenerator.cs"/>
+    <Compile Include="$(MSBuildThisFileDirectory)ClassDeclarationForSourceGenService.cs" />
         <Compile Include="$(MSBuildThisFileDirectory)TypedMapperGenerator.cs"/>
+    <Compile Include="$(MSBuildThisFileDirectory)DatabaseSpecificInfo.cs" />
     </ItemGroup>
 </Project>

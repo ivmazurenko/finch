@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlite;
+namespace Finch.Generators.Shared;
 
 public static class ReaderGenerator
 {
@@ -13,8 +13,7 @@ public static class ReaderGenerator
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations,
-        string dataReaderType,
-        string prefix)
+        DatabaseSpecificInfo info)
     {
         foreach (var classDeclarationSyntax in classDeclarations)
         {
@@ -84,18 +83,18 @@ public static class ReaderGenerator
 
                   namespace {{namespaceName}};
 
-                  internal partial class {{prefix}}TypedMapper
+                  internal partial class {{info.prefix}}TypedMapper
                   {
                       public static void Map(
                           {{namespaceName}}.{{className}} item,
-                          {{dataReaderType}} reader)
+                          {{info.readerType}} reader)
                       {
                   {{string.Join("\n\n", methodBody)}}
                       }
                   }
                   """;
 
-            context.AddSource($"{prefix}TypedMapper.{className}.g.cs", SourceText.From(code, Encoding.UTF8));
+            context.AddSource($"{info.prefix}TypedMapper.{className}.g.cs", SourceText.From(code, Encoding.UTF8));
         }
     }
 }

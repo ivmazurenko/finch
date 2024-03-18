@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlite;
+namespace Finch.Generators.Shared;
 
 public static class ConnectionExtensionsGenerator
 {
@@ -12,9 +12,7 @@ public static class ConnectionExtensionsGenerator
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations,
-        string commandType,
-        string connectionType,
-        string prefix)
+        DatabaseSpecificInfo info)
     {
         foreach (var classDeclarationSyntax in classDeclarations)
         {
@@ -28,23 +26,23 @@ public static class ConnectionExtensionsGenerator
 
                          namespace {{namespaceName}};
 
-                         public static partial class {{prefix}}ConnectionExtensions
+                         public static partial class {{info.prefix}}ConnectionExtensions
                          {
                              public static global::System.Collections.Generic.List<T> Query<T>(
-                                 this {{connectionType}} connection,
+                                 this {{info.connectionType}} connection,
                                  string sql)
                                  where T : new()
                              {
                                  connection.Open();
                          
                                  var items = new global::System.Collections.Generic.List<T>();
-                                 using var command = new {{commandType}}(sql, connection);
+                                 using var command = new {{info.commandType}}(sql, connection);
                                  using var reader = command.ExecuteReader();
                                  while (reader.Read())
                                  {
                                      T item = new T();
                          
-                                     {{prefix}}GenericMapper.Map(item, reader);
+                                     {{info.prefix}}GenericMapper.Map(item, reader);
                                      items.Add(item);
                                  }
                                  
@@ -52,7 +50,7 @@ public static class ConnectionExtensionsGenerator
                              }
                          }
                          """;
-            context.AddSource($"{prefix}ConnectionExtensions.Query.g.cs", SourceText.From(code, Encoding.UTF8));
+            context.AddSource($"{info.prefix}ConnectionExtensions.Query.g.cs", SourceText.From(code, Encoding.UTF8));
             break;
         }
     }

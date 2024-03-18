@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlserver;
+namespace Finch.Generators.Sqlite;
 
 public static class ReaderGenerator
 {
@@ -34,8 +34,7 @@ public static class ReaderGenerator
                         return $@"         item.{p.Name} = Convert.ToInt32(reader[""{p.Name}""]);";
                     else if (p.Type.ToDisplayString() == "string")
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";
-                    else
-                    if (p.Type.ToDisplayString() == "bool")
+                    else if (p.Type.ToDisplayString() == "bool")
                         return $@"         item.{p.Name} = Convert.ToBoolean(reader[""{p.Name}""]);";
                     return "// NOT IMPLEMENTED";
                 });

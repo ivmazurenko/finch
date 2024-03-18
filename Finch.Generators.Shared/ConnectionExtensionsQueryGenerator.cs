@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlserver;
+namespace Finch.Generators.Sqlite;
 
 public static class ConnectionExtensionsGenerator
 {
@@ -31,7 +31,7 @@ public static class ConnectionExtensionsGenerator
                          public static partial class {{prefix}}ConnectionExtensions
                          {
                              public static global::System.Collections.Generic.List<T> Query<T>(
-                                 this {{connectionType}} connection, 
+                                 this {{connectionType}} connection,
                                  string sql)
                                  where T : new()
                              {

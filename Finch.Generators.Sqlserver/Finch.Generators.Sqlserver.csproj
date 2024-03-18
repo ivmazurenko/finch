@@ -20,7 +20,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.3.0"/>
     </ItemGroup>
 
-    <Import Project="..\Finch.Generators.Shared\Finch.Generators.Shared.projitems" Label="Shared" />
+    <Import Project="..\Finch.Generators.Shared\Finch.Generators.Shared.projitems" Label="Shared"/>
 
 
 </Project>

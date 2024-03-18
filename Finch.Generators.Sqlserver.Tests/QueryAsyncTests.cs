@@ -19,4 +19,3 @@ public class QueryAsyncTests
         Assert.Equal("Jane", items[1].name);
     }
 }
-

@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MockingDatabase", "MockingD
 		MockingDatabase\mock_database.sh = MockingDatabase\mock_database_sqlserver.sh
 		MockingDatabase\mock_database.sh = MockingDatabase\mock_database_sqlserver.sql
 		MockingDatabase\mock_database_sqlserver.dockerfile = MockingDatabase\mock_database_sqlserver.dockerfile
+		MockingDatabase\mock_database_sqlite.db = MockingDatabase\mock_database_sqlite.db
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions.Sqlserver", "Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj", "{2BA208FD-66A5-4E9B-A016-6B5124789AEA}"
@@ -25,6 +26,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{85547894-6CB7-4370-BE6E-6ED7D00DC021}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Finch.Generators.Shared", "Finch.Generators.Shared\Finch.Generators.Shared.shproj", "{E18565B8-1C20-46F3-8573-0DF7FD55CC60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions.Sqlite", "Finch.Abstractions.Sqlite\Finch.Abstractions.Sqlite.csproj", "{813E6BA5-B1F5-4209-A016-817FB0566F26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlite.Tests", "Finch.Generators.Sqlite.Tests\Finch.Generators.Sqlite.Tests.csproj", "{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlite", "Finch.Generators.Sqlite\Finch.Generators.Sqlite.csproj", "{755332AA-544C-4292-A9B6-B40D3F8C1F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,9 +63,22 @@ Global
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F8A4483D-498B-4705-A69F-B484F192F522} = {85547894-6CB7-4370-BE6E-6ED7D00DC021}
 		{5077732C-BE6C-43CA-A235-64192C1BD25B} = {85547894-6CB7-4370-BE6E-6ED7D00DC021}
+		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9} = {85547894-6CB7-4370-BE6E-6ED7D00DC021}
 	EndGlobalSection
 EndGlobal

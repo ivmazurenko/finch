@@ -1,9 +1,8 @@
 using System.Collections.Immutable;
-using Finch.Generators.Sqlite;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Finch.Generators.Sqlserver;
+namespace Finch.Generators.Sqlite;
 
 [Generator]
 public class RootGenerator : IIncrementalGenerator
@@ -34,7 +33,7 @@ public class RootGenerator : IIncrementalGenerator
 
             var attributeName = attributeSymbol.ContainingType.ToDisplayString();
 
-            if (attributeName == "Finch.Abstractions.Sqlserver.GenerateSqlserverConnectionExtensionsAttribute")
+            if (attributeName == "Finch.Abstractions.Npgsql.GenerateNpgsqlConnectionExtensionsAttribute")
                 return (classDeclarationSyntax, true);
         }
 
@@ -46,16 +45,27 @@ public class RootGenerator : IIncrementalGenerator
         Compilation compilation,
         ImmutableArray<ClassDeclarationSyntax> classDeclarations)
     {
-        const string readerType = "global::Microsoft.Data.SqlClient.SqlDataReader";
-        const string commandType = "global::Microsoft.Data.SqlClient.SqlCommand";
-        const string connectionType = "global::Microsoft.Data.SqlClient.SqlConnection";
-        const string parameterType = "global::Microsoft.Data.SqlClient.SqlParameter";
-        const string prefix = "Sqlserver";
+        const string readerType = "global::System.Data.Common.DbDataReader";
+        const string commandType = "global::System.Data.SQLite.SQLiteCommand";
+        const string connectionType = "global::System.Data.SQLite.SQLiteConnection";
+        const string parameterType = "global::System.Data.SQLite.SQLiteParameter";
+        const string prefix = "Sqlite";
 
-        ConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations, commandType,
-            connectionType, prefix);
-        ConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations, commandType,
-            connectionType, prefix);
+        ConnectionExtensionsGenerator.GenerateQuery(
+            context,
+            compilation,
+            classDeclarations,
+            commandType,
+            connectionType,
+            prefix);
+
+        ConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(
+            context,
+            compilation,
+            classDeclarations,
+            commandType,
+            connectionType,
+            prefix);
 
         ConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(
             context,

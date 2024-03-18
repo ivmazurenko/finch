@@ -1,8 +1,9 @@
-use mock_database;
+use
+mock_database;
 
 CREATE TABLE tb_user
 (
-    id   int PRIMARY KEY IDENTITY ,
+    id   int PRIMARY KEY IDENTITY,
     name VARCHAR(100)
 );
 

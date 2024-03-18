@@ -1,4 +1,3 @@
-
 using Microsoft.Data.SqlClient;
 
 namespace Finch.Generators.Sqlserver.Tests;

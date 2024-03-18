@@ -1,11 +1,11 @@
-using Npgsql;
+using System.Data.SQLite;
 using Xunit;
 
-namespace Finch.Generators.Npgsql.Tests;
+namespace Finch.Generators.Sqlite.Tests;
 
 public class QueryAsyncTests
 {
-    private readonly NpgsqlConnection _connection = NpgsqlConnectionProvider.Create();
+    private readonly SQLiteConnection _connection = ConnectionProvider.Create();
 
     [Fact]
     public async Task QueriesSeriesAsInt()

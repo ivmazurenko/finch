@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Sqlserver;
+namespace Finch.Generators.Sqlite;
 
 public static class ReaderGenericGenerator
 {

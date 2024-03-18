@@ -1,5 +1,5 @@
 using System.Collections.Immutable;
-using Finch.Generators.Sqlserver;
+using Finch.Generators.Sqlite;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 

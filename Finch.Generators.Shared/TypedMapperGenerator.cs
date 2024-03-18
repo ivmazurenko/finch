@@ -37,7 +37,14 @@ public static class ReaderGenerator
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";
                     else if (p.Type.ToDisplayString() == "bool")
                         return $@"         item.{p.Name} = Convert.ToBoolean(reader[""{p.Name}""]);";
-                    return "// NOT IMPLEMENTED";
+                    else if (p.Type.ToDisplayString() == "bool?")
+                        return $"""
+                                        if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
+                                            item.{p.Name} = null;
+                                        else            
+                                            item.{p.Name} = Convert.ToBoolean(reader["{p.Name}"]);
+                                """;
+                    return $"{p.Type}";
                 });
 
             var code =

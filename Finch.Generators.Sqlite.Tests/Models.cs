@@ -20,3 +20,9 @@ public class TbValueBit
 {
     public bool value { get; set; }
 }
+
+[GenerateSqliteConnectionExtensions]
+public class TbValueBitNullable
+{
+    public bool? value { get; set; }
+}

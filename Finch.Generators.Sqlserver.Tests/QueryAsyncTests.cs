@@ -18,4 +18,16 @@ public class QueryAsyncTests
         Assert.Equal("John", items[0].name);
         Assert.Equal("Jane", items[1].name);
     }
+     
+    [Fact]
+    public async Task QueriesNullableBoolean()
+    {
+        var items = await _connection.QueryAsync<TbValueBitNullable>("select * from tb_value_bit_nullable");
+
+        Assert.Equal(3, items.Count);
+        Assert.Null(items[0].value);
+        Assert.True(items[1].value);
+        Assert.False(items[2].value);
+    }
 }
+

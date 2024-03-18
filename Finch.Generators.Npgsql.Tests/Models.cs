@@ -20,3 +20,9 @@ public class TbValueBit
 {
     public bool value { get; set; }
 }
+
+[GenerateNpgsqlConnectionExtensions]
+public class TbValueBitNullable
+{
+    public bool? value { get; set; }
+}

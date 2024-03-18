@@ -29,3 +29,14 @@ CREATE TABLE tb_value_bit
 INSERT INTO tb_value_bit (value)
 VALUES (B'0'),
        (B'1');
+
+
+CREATE TABLE tb_value_bit_nullable
+(
+    value bit 
+);
+
+INSERT INTO tb_value_bit_nullable (value)
+VALUES (NULL),
+       (B'1'),
+       (B'0');

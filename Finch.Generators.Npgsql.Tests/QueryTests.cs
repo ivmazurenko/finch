@@ -36,4 +36,15 @@ public class QueryTests
         Assert.False(items[0].value);
         Assert.True(items[1].value);
     }
+    
+    [Fact]
+    public void QueriesNullableBoolean()
+    {
+        var items = _connection.Query<TbValueBitNullable>("select * from tb_value_bit_nullable");
+
+        Assert.Equal(3, items.Count);
+        Assert.Null(items[0].value);
+        Assert.True(items[1].value);
+        Assert.False(items[2].value);
+    }
 }

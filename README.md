@@ -12,3 +12,9 @@
 2. Performance benchmarks are not a priority.
 3. Avoid focusing on Object Relational Model (ORM) functionality.
 4. Support frameworks older then dotnet 8.
+
+### TO DO
+1. Support records
+2. Pack nuget package (packages?)
+3. Fix namespace generation somehow
+4. Support all primitive types

@@ -7,7 +7,16 @@ namespace Finch.Generators.All.Tests;
 [GenerateNpgsqlConnectionExtensions]
 [GenerateSqliteConnectionExtensions]
 [GenerateSqlserverConnectionExtensions]
-public class TbUser
+public class TbUserClass
+{
+    public int id { get; set; }
+    public string name { get; set; }
+}
+
+[GenerateNpgsqlConnectionExtensions]
+[GenerateSqliteConnectionExtensions]
+[GenerateSqlserverConnectionExtensions]
+public record TbUserRecord
 {
     public int id { get; set; }
     public string name { get; set; }

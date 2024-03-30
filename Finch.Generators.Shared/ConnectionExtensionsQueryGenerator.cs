@@ -11,7 +11,7 @@ public static class ConnectionExtensionsGenerator
     public static void GenerateQuery(
         SourceProductionContext context,
         Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        ImmutableArray<TypeDeclarationSyntax> classDeclarations,
         DatabaseSpecificInfo info)
     {
         foreach (var classDeclarationSyntax in classDeclarations)

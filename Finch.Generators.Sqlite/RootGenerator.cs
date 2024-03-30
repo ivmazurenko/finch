@@ -16,12 +16,12 @@ public class RootGenerator : IIncrementalGenerator
             commandType = "global::System.Data.SQLite.SQLiteCommand",
             connectionType = "global::System.Data.SQLite.SQLiteConnection",
             parameterType = "global::System.Data.SQLite.SQLiteParameter",
-            prefix = "Sqlite",
+            prefix = "Sqlite"
         };
 
         var provider = context.SyntaxProvider
             .CreateSyntaxProvider(
-                (s, _) => s is ClassDeclarationSyntax,
+                (s, _) => s is ClassDeclarationSyntax or RecordDeclarationSyntax,
                 (ctx, _) => ClassDeclarationForSourceGenService.Get(
                     ctx,
                     "Finch.Abstractions.Sqlite.GenerateSqliteConnectionExtensionsAttribute"))
@@ -35,19 +35,20 @@ public class RootGenerator : IIncrementalGenerator
     private static void GenerateCode(
         SourceProductionContext context,
         Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        ImmutableArray<TypeDeclarationSyntax> classOrRecordDeclarations,
         DatabaseSpecificInfo info)
     {
-        ConnectionExtensionsGenerator.GenerateQuery(context, compilation, classDeclarations, info);
-        ConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classDeclarations, info);
+        ConnectionExtensionsGenerator.GenerateQuery(context, compilation, classOrRecordDeclarations, info);
+        ConnectionExtensionsQueryAsyncGenerator.GenerateQueryAsync(context, compilation, classOrRecordDeclarations,
+            info);
 
         ConnectionExtensionsQueryAsyncWithParameterGenerator.GenerateQueryAsyncWithParameter(
             context,
             compilation,
-            classDeclarations,
+            classOrRecordDeclarations,
             info);
 
-        ReaderGenericGenerator.Generate(context, compilation, classDeclarations, info);
-        ReaderGenerator.Generate(context, compilation, classDeclarations, info);
+        GenericMapperGenerator.Generate(context, compilation, classOrRecordDeclarations, info);
+        TypedMapperGenerator.Generate(context, compilation, classOrRecordDeclarations, info);
     }
 }

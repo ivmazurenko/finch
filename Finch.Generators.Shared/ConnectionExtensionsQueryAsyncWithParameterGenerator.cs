@@ -11,7 +11,7 @@ public static class ConnectionExtensionsQueryAsyncWithParameterGenerator
     public static void GenerateQueryAsyncWithParameter(
         SourceProductionContext context,
         Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        ImmutableArray<TypeDeclarationSyntax> classDeclarations,
         DatabaseSpecificInfo info)
     {
         foreach (var classDeclarationSyntax in classDeclarations)

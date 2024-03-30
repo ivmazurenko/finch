@@ -1,1 +1,1 @@
-#!/bin/bash
+echo "Initializing database and required tables"; for i in {1..50}; do /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P vEryL111ngOassw1e! -d master -i mock_database_sqlserver.sql && { echo "mock_database_sqlserver.sql completed"; break; } || { echo "not ready yet..."; sleep 1; }; done

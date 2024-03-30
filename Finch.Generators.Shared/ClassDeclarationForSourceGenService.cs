@@ -5,10 +5,10 @@ namespace Finch.Generators.Shared;
 
 public static class ClassDeclarationForSourceGenService
 {
-    public static (ClassDeclarationSyntax, bool reportAttributeFound) Get(
+    public static (TypeDeclarationSyntax, bool reportAttributeFound) Get(
         GeneratorSyntaxContext context, string targetAttributeName)
     {
-        var classDeclarationSyntax = (ClassDeclarationSyntax)context.Node;
+        var classDeclarationSyntax = (TypeDeclarationSyntax)context.Node;
 
         foreach (var attributeListSyntax in classDeclarationSyntax.AttributeLists)
         foreach (var attributeSyntax in attributeListSyntax.Attributes)

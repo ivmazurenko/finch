@@ -11,7 +11,7 @@ public static class ConnectionExtensionsQueryAsyncGenerator
     public static void GenerateQueryAsync(
         SourceProductionContext context,
         Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        ImmutableArray<TypeDeclarationSyntax> classDeclarations,
         DatabaseSpecificInfo info)
     {
         foreach (var classDeclarationSyntax in classDeclarations)
@@ -52,7 +52,8 @@ public static class ConnectionExtensionsQueryAsyncGenerator
                       }
                   }
                   """;
-            context.AddSource($"{info.prefix}ConnectionExtensions.QueryAsync.g.cs", SourceText.From(code, Encoding.UTF8));
+            context.AddSource($"{info.prefix}ConnectionExtensions.QueryAsync.g.cs",
+                SourceText.From(code, Encoding.UTF8));
             break;
         }
     }

@@ -1,59 +1,63 @@
+create
+database mock_database
+go
+
 use
 mock_database;
 
-CREATE TABLE tb_user
+create table tb_user
 (
-    id   int PRIMARY KEY IDENTITY,
+    id   int primary key identity,
     name VARCHAR(100)
 );
 
-INSERT INTO tb_user (name)
-VALUES ('John'),
+insert into tb_user (name)
+values ('John'),
        ('Jane');
 
 
 
-CREATE TABLE tb_value_varchar100
+create table tb_value_varchar100
 (
     value VARCHAR(100) not null
 );
 
-INSERT INTO tb_value_varchar100 (value)
-VALUES ('John'),
+insert into tb_value_varchar100 (value)
+values ('John'),
        ('Jane');
 
 
 
-CREATE TABLE tb_value_bit
+create table tb_value_bit
 (
     value bit not null
 );
 
-INSERT INTO tb_value_bit (value)
-VALUES (0),
+insert into tb_value_bit (value)
+values (0),
        (1);
 
 
-CREATE TABLE tb_value_bit_nullable
+create table tb_value_bit_nullable
 (
     value bit,
 );
 
-INSERT INTO tb_value_bit_nullable (value)
-VALUES (null),
+insert into tb_value_bit_nullable (value)
+values (null),
        (1),
        (0);
 
 
-CREATE TABLE tb_different_integer_nullable
+create table tb_different_integer_nullable
 (
     value_smallint smallint,
     value_integer  integer,
     value_bigint   bigint
 );
 
-INSERT INTO tb_different_integer_nullable (value_smallint, value_integer, value_bigint)
-VALUES (NULL, 2, 4),
-       (1, NULL, 4),
-       (1, 2, NULL),
+insert into tb_different_integer_nullable (value_smallint, value_integer, value_bigint)
+values (null, 2, 4),
+       (1, null, 4),
+       (1, 2, null),
        (0, 0, 0);

@@ -7,5 +7,4 @@ COPY ./mock_database_sqlserver.sql ./
 COPY ./mock_database_sqlserver.sh ./
 EXPOSE 1433
 
-#ENTRYPOINT /bin/bash ./initialize_mocking_database.sh & /opt/mssql/bin/sqlservr
-ENTRYPOINT /opt/mssql/bin/sqlservr
+ENTRYPOINT /bin/bash ./mock_database_sqlserver.sh & /opt/mssql/bin/sqlservr

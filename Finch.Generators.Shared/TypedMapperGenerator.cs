@@ -7,15 +7,15 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Finch.Generators.Shared;
 
-public static class ReaderGenerator
+public static class TypedMapperGenerator
 {
     public static void Generate(
         SourceProductionContext context,
         Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        ImmutableArray<TypeDeclarationSyntax> classOrRecordDeclarations,
         DatabaseSpecificInfo info)
     {
-        foreach (var classDeclarationSyntax in classDeclarations)
+        foreach (var classDeclarationSyntax in classOrRecordDeclarations)
         {
             var semanticModel = compilation.GetSemanticModel(classDeclarationSyntax.SyntaxTree);
 
@@ -28,51 +28,53 @@ public static class ReaderGenerator
 
             var methodBody = classSymbol.GetMembers()
                 .OfType<IPropertySymbol>()
+                .Where(ps =>
+                    !(classDeclarationSyntax is RecordDeclarationSyntax && ps.ToDisplayString() == "EqualityContract"))
                 .Select(p =>
                 {
                     if (p.Type.ToDisplayString() == "int")
                         return $@"         item.{p.Name} = Convert.ToInt32(reader[""{p.Name}""]);";
-                    else if (p.Type.ToDisplayString() == "int?")
+                    if (p.Type.ToDisplayString() == "int?")
                         return $"""
                                         if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
                                             item.{p.Name} = null;
                                         else
                                             item.{p.Name} = Convert.ToInt32(reader["{p.Name}"]);
                                 """;
-                    
+
                     if (p.Type.ToDisplayString() == "short")
                         return $@"         item.{p.Name} = Convert.ToInt16(reader[""{p.Name}""]);";
-                    else if (p.Type.ToDisplayString() == "short?")
+                    if (p.Type.ToDisplayString() == "short?")
                         return $"""
                                         if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
                                             item.{p.Name} = null;
                                         else
                                             item.{p.Name} = Convert.ToInt16(reader["{p.Name}"]);
                                 """;
-                    
+
                     if (p.Type.ToDisplayString() == "long")
                         return $@"         item.{p.Name} = Convert.ToInt64(reader[""{p.Name}""]);";
-                    else if (p.Type.ToDisplayString() == "long?")
+                    if (p.Type.ToDisplayString() == "long?")
                         return $"""
                                         if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
                                             item.{p.Name} = null;
                                         else
                                             item.{p.Name} = Convert.ToInt64(reader["{p.Name}"]);
                                 """;
-                    
-                    else if (p.Type.ToDisplayString() == "string")
+
+                    if (p.Type.ToDisplayString() == "string")
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";
 
-                    else if (p.Type.ToDisplayString() == "bool")
+                    if (p.Type.ToDisplayString() == "bool")
                         return $@"         item.{p.Name} = Convert.ToBoolean(reader[""{p.Name}""]);";
-                    else if (p.Type.ToDisplayString() == "bool?")
+                    if (p.Type.ToDisplayString() == "bool?")
                         return $"""
                                         if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
                                             item.{p.Name} = null;
                                         else
                                             item.{p.Name} = Convert.ToBoolean(reader["{p.Name}"]);
                                 """;
-                    return $"{p.Type}";
+                    return $"// CAN NOT PROCESS: {p.Type.ToDisplayString()} -> {p.Name}";
                 });
 
             var code =

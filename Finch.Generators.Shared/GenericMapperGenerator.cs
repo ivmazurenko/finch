@@ -7,12 +7,12 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Finch.Generators.Shared;
 
-public static class ReaderGenericGenerator
+public static class GenericMapperGenerator
 {
     public static void Generate(
         SourceProductionContext context,
         Compilation compilation,
-        ImmutableArray<ClassDeclarationSyntax> classDeclarations,
+        ImmutableArray<TypeDeclarationSyntax> classDeclarations,
         DatabaseSpecificInfo info)
     {
         var items = new List<string>();

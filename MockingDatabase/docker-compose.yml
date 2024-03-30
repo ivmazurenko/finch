@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mock_database_postgre:
+    build:
+      context: .
+      dockerfile: mock_database_postgre.dockerfile
+    ports:
+      - "5432:5432"
+
+  mock_database_sqlserver:
+    build:
+      context: .
+      dockerfile: mock_database_sqlserver.dockerfile
+    ports:
+      - "1433:1433"
+

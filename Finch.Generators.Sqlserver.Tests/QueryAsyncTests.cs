@@ -18,7 +18,7 @@ public class QueryAsyncTests
         Assert.Equal("John", items[0].name);
         Assert.Equal("Jane", items[1].name);
     }
-     
+
     [Fact]
     public async Task QueriesNullableBoolean()
     {
@@ -29,11 +29,12 @@ public class QueryAsyncTests
         Assert.True(items[1].value);
         Assert.False(items[2].value);
     }
-    
+
     [Fact]
     public async Task QueriesDifferentIntegersWithNulls()
     {
-        var items = await _connection.QueryAsync<TbDifferentIntegerNullable>("select * from tb_different_integer_nullable");
+        var items =
+            await _connection.QueryAsync<TbDifferentIntegerNullable>("select * from tb_different_integer_nullable");
 
         Assert.Equal(4, items.Count);
         Assert.Null(items[0].value_smallint);
@@ -54,4 +55,3 @@ public class QueryAsyncTests
         Assert.Equal(0, items[3].value_bigint);
     }
 }
-

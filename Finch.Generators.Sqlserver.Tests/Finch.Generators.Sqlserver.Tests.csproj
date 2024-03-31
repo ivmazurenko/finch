@@ -18,7 +18,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj"/>
         <ProjectReference Include="..\Finch.Generators.Sqlserver\Finch.Generators.Sqlserver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-        <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj" />
+        <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj"/>
     </ItemGroup>
 
 </Project>

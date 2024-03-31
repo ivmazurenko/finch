@@ -36,7 +36,7 @@ public class QueryTests
         Assert.False(items[0].value);
         Assert.True(items[1].value);
     }
-    
+
     [Fact]
     public void QueriesNullableBoolean()
     {

@@ -33,7 +33,8 @@ public class QueryAsyncTests
     [Fact]
     public async Task QueriesDifferentIntegersWithNulls()
     {
-        var items = await _connection.QueryAsync<TbDifferentIntegerNullable>("select * from tb_different_integer_nullable");
+        var items =
+            await _connection.QueryAsync<TbDifferentIntegerNullable>("select * from tb_different_integer_nullable");
 
         Assert.Equal(4, items.Count);
         Assert.Null(items[0].value_smallint);

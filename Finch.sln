@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlite.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlite", "Finch.Generators.Sqlite\Finch.Generators.Sqlite.csproj", "{755332AA-544C-4292-A9B6-B40D3F8C1F3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.All.Tests", "Finch.Generators.All.Tests\Finch.Generators.All.Tests.csproj", "{0B9886A3-8A85-4323-96A3-874A106F8BF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Packages.Tests", "Finch.Generators.Packages.Tests\Finch.Generators.Packages.Tests.csproj", "{0B9886A3-8A85-4323-96A3-874A106F8BF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Tests.Shared", "Finch.Tests.Shared\Finch.Tests.Shared.csproj", "{7B45FA8D-F04B-4ED2-9BBF-10DF44739DEF}"
 EndProject

@@ -2,7 +2,7 @@ using Finch.Abstractions.Npgsql;
 using Finch.Abstractions.Sqlite;
 using Finch.Abstractions.Sqlserver;
 
-namespace Finch.Generators.All.Tests;
+namespace Finch.Generators.Packages.Tests;
 
 [GenerateNpgsqlConnectionExtensions]
 [GenerateSqliteConnectionExtensions]

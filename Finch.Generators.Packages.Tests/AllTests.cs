@@ -3,7 +3,7 @@ using Finch.Tests.Shared;
 using Microsoft.Data.SqlClient;
 using Npgsql;
 
-namespace Finch.Generators.All.Tests;
+namespace Finch.Generators.Packages.Tests;
 
 public class CanUseAllConnectionsAtTheSameTimeTests
 {

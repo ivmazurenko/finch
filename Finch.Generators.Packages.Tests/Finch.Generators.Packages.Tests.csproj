@@ -6,6 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Finch.Abstractions.Npgsql" Version="0.0.1"/>
+        <PackageReference Include="Finch.Abstractions.Sqlite" Version="0.0.1"/>
+        <PackageReference Include="Finch.Abstractions.Sqlserver" Version="0.0.1"/>
+        <PackageReference Include="Finch.Generators.Npgsql" Version="0.0.101"/>
+        <PackageReference Include="Finch.Generators.Sqlite" Version="0.0.101"/>
+        <PackageReference Include="Finch.Generators.Sqlserver" Version="0.0.101"/>
         <PackageReference Include="Npgsql" Version="8.0.2"/>
         <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0"/>
         <PackageReference Include="System.Data.SQLite" Version="1.0.118"/>
@@ -18,13 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Finch.Abstractions.Npgsql\Finch.Abstractions.Npgsql.csproj"/>
-        <ProjectReference Include="..\Finch.Abstractions.Sqlite\Finch.Abstractions.Sqlite.csproj" />
-        <ProjectReference Include="..\Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj" />
-        <ProjectReference Include="..\Finch.Generators.Npgsql\Finch.Generators.Npgsql.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-        <ProjectReference Include="..\Finch.Generators.Sqlite\Finch.Generators.Sqlite.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-        <ProjectReference Include="..\Finch.Generators.Sqlserver\Finch.Generators.Sqlserver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
-        <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj" />
+        <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj"/>
     </ItemGroup>
 
 </Project>

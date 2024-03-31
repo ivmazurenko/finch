@@ -1,4 +1,6 @@
-﻿namespace Finch.Abstractions.Sqlserver;
+﻿using System;
+
+namespace Finch.Abstractions.Sqlserver;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class GenerateSqlserverConnectionExtensionsAttribute : Attribute;

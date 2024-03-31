@@ -2,13 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
-
+        <PackageId>Finch.Generators.Sqlserver</PackageId>
+        <Version>0.0.1</Version>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
-        <PackageId>Finch.Npgsql.Generators</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,6 +20,5 @@
     </ItemGroup>
 
     <Import Project="..\Finch.Generators.Shared\Finch.Generators.Shared.projitems" Label="Shared"/>
-
 
 </Project>

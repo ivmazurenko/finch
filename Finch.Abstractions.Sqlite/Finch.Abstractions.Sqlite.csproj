@@ -6,6 +6,9 @@
         <LangVersion>latest</LangVersion>
         <PackageId>Finch.Abstractions.Sqlite</PackageId>
         <Version>0.0.1</Version>
+        <Authors>Ilia Mazurenko</Authors>
+        <Company>Empty</Company>
+        <Product>Finch</Product>
     </PropertyGroup>
 
 </Project>

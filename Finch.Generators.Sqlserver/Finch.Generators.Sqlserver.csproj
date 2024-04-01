@@ -5,16 +5,18 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <PackageId>Finch.Generators.Sqlserver</PackageId>
-        <Version>0.0.101</Version>
+        <Version>0.0.102</Version>
         <Authors>Ilia Mazurenko</Authors>
         <Company>Empty</Company>
         <Product>Finch</Product>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
     <ItemGroup>

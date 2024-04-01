@@ -5,10 +5,11 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <PackageId>Finch.Generators.Sqlite</PackageId>
-        <Version>0.0.103</Version>
+        <Version>0.0.104</Version>
         <Authors>Ilia Mazurenko</Authors>
         <Company>Empty</Company>
         <Product>Finch</Product>
+        <PackageProjectUrl>https://github.com/ivmazurenko/Finch</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>

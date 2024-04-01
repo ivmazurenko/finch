@@ -46,7 +46,7 @@ public class QueryTests
         Assert.Equal(1.05m, items[0].value);
         Assert.Equal(1.99m, items[1].value);
     }
-    
+
     [Fact]
     public void QueriesNullableDecimal()
     {

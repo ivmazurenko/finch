@@ -40,3 +40,9 @@ public class TbValueNumeric
 {
     public decimal value { get; set; }
 }
+
+[GenerateSqlserverConnectionExtensions]
+public class TbValueNumericNullable
+{
+    public decimal? value { get; set; }
+}

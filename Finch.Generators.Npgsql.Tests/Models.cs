@@ -40,3 +40,9 @@ public class TbDifferentIntegerNullable
     public int? value_integer { get; set; }
     public long? value_bigint { get; set; }
 }
+
+[GenerateNpgsqlConnectionExtensions]
+public class TbValueNumericNullable
+{
+    public decimal? value { get; set; }
+}

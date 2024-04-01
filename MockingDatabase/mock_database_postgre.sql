@@ -55,8 +55,18 @@ values (null, 2, 4),
 
 create table tb_value_numeric
 (
-    value NUMERIC(3, 2)
+    value NUMERIC(3, 2) not null
 );
 insert into tb_value_numeric (value)
 values (1.05),
        (1.99);
+
+
+
+create table tb_value_numeric_nullable
+(
+    value NUMERIC(3, 2)
+);
+insert into tb_value_numeric_nullable (value)
+values (null),
+       (1.22);

@@ -57,4 +57,14 @@ public class QueryTests
         Assert.Equal(1.05m, items[0].value);
         Assert.Equal(1.99m, items[1].value);
     }
+
+    [Fact]
+    public void QueriesNullableDecimal()
+    {
+        var items = _connection.Query<TbValueNumericNullable>("select * from tb_value_numeric_nullable");
+
+        Assert.Equal(2, items.Count);
+        Assert.Null(items[0].value);
+        Assert.Equal(1.22m, items[1].value);
+    }
 }

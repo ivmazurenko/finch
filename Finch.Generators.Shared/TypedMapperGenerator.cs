@@ -64,6 +64,13 @@ public static class TypedMapperGenerator
 
                     if (p.Type.ToDisplayString() == "decimal")
                         return $@"         item.{p.Name} = Convert.ToDecimal(reader[""{p.Name}""]);";
+                    if (p.Type.ToDisplayString() == "decimal?")
+                        return $"""
+                                        if (reader.IsDBNull(reader.GetOrdinal("{p.Name}")))
+                                            item.{p.Name} = null;
+                                        else
+                                            item.{p.Name} = Convert.ToDecimal(reader["{p.Name}"]);
+                                """;
 
                     if (p.Type.ToDisplayString() == "string")
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";

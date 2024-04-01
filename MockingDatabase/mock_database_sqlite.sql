@@ -52,3 +52,13 @@ values (null, 2, 4),
        (1, null, 4),
        (1, 2, null),
        (0, 0, 0);
+
+
+
+create table tb_value_numeric
+(
+    value NUMERIC(3, 2)
+);
+insert into tb_value_numeric (value)
+values (1.05),
+       (1.99);

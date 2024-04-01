@@ -28,6 +28,12 @@ public class TbValueBitNullable
 }
 
 [GenerateNpgsqlConnectionExtensions]
+public class TbValueNumeric
+{
+    public decimal value { get; set; }
+}
+
+[GenerateNpgsqlConnectionExtensions]
 public class TbDifferentIntegerNullable
 {
     public short? value_smallint { get; set; }

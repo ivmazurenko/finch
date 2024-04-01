@@ -36,4 +36,14 @@ public class QueryTests
         Assert.False(items[0].value);
         Assert.True(items[1].value);
     }
+
+    [Fact]
+    public void QueriesDecimal()
+    {
+        var items = _connection.Query<TbValueNumeric>("select * from tb_value_numeric");
+
+        Assert.Equal(2, items.Count);
+        Assert.Equal(1.05m, items[0].value);
+        Assert.Equal(1.99m, items[1].value);
+    }
 }

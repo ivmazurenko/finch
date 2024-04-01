@@ -34,3 +34,9 @@ public class TbDifferentIntegerNullable
     public int? value_integer { get; set; }
     public long? value_bigint { get; set; }
 }
+
+[GenerateSqliteConnectionExtensions]
+public class TbValueNumeric
+{
+    public decimal value { get; set; }
+}

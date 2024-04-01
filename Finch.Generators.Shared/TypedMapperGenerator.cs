@@ -62,6 +62,9 @@ public static class TypedMapperGenerator
                                             item.{p.Name} = Convert.ToInt64(reader["{p.Name}"]);
                                 """;
 
+                    if (p.Type.ToDisplayString() == "decimal")
+                        return $@"         item.{p.Name} = Convert.ToDecimal(reader[""{p.Name}""]);";
+
                     if (p.Type.ToDisplayString() == "string")
                         return $@"         item.{p.Name} = reader[""{p.Name}""].ToString();";
 

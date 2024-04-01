@@ -34,3 +34,9 @@ public class TbDifferentIntegerNullable
     public int? value_integer { get; set; }
     public long? value_bigint { get; set; }
 }
+
+[GenerateSqlserverConnectionExtensions]
+public class TbValueNumeric
+{
+    public decimal value { get; set; }
+}

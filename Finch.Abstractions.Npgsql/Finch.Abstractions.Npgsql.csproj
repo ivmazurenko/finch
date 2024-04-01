@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <PackageId>Finch.Abstractions.Npgsql</PackageId>
-        <Version>0.0.102</Version>
+        <Version>0.0.103</Version>
         <Authors>Ilia Mazurenko</Authors>
         <Company>Empty</Company>
         <Product>Finch</Product>

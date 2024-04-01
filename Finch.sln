@@ -15,6 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MockingDatabase", "MockingD
 		MockingDatabase\mock_database.sh = MockingDatabase\mock_database_sqlserver.sql
 		MockingDatabase\mock_database_sqlserver.dockerfile = MockingDatabase\mock_database_sqlserver.dockerfile
 		MockingDatabase\mock_database_sqlite.db = MockingDatabase\mock_database_sqlite.db
+		MockingDatabase\docker-compose.yml = MockingDatabase\docker-compose.yml
+		MockingDatabase\mock_database_sqlite.sql = MockingDatabase\mock_database_sqlite.sql
+		MockingDatabase\mock_database_sqlite.sh = MockingDatabase\mock_database_sqlite.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions.Sqlserver", "Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj", "{2BA208FD-66A5-4E9B-A016-6B5124789AEA}"

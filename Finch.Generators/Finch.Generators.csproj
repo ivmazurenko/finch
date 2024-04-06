@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <PackageId>Finch.Generators</PackageId>
-        <Version>0.0.106</Version>
+        <Version>0.0.107</Version>
         <Authors>Ilia Mazurenko</Authors>
         <Company>Empty</Company>
         <Product>Finch</Product>

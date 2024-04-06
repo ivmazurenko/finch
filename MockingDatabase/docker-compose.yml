@@ -15,3 +15,9 @@ services:
     ports:
       - "1433:1433"
 
+  mock_database_mysql:
+    build:
+      context: .
+      dockerfile: mock_database_mysql.dockerfile
+    ports:
+      - "3306:3306"

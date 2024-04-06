@@ -10,6 +10,9 @@ public static class Constants
     public static readonly string SqlserverConnectionString =
         "Server=localhost,1433;User Id=SA;Password=vEryL111ngOassw1e!;Database=mock_database;Encrypt=false";
 
+    public static readonly string MysqlConnectionString =
+        "Server=localhost;Port=3306;Database=mock_database;Uid=root;Pwd=vEryL111ngOassw1e!;";
+
     private static string MockSqliteDatabasePath => Path.Combine(
         Solution.SolutionRootPath,
         "MockingDatabase",

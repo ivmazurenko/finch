@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Finch.Generators;
 
-public static class GenericMapperGenerator
+public static class ObjectMapperGenerator
 {
     public static void Generate(
         SourceProductionContext context,
@@ -50,7 +50,7 @@ public static class GenericMapperGenerator
 
               namespace {{allNamespace}};
 
-              internal class {{info.prefix}}GenericMapper
+              internal class {{info.prefix}}ObjectMapper
               {
                   public static void Map<T>(T item, {{info.readerType}} reader)
                   {
@@ -60,6 +60,6 @@ public static class GenericMapperGenerator
 
               """;
 
-        context.AddSource($"{info.prefix}GenericMapper.g.cs", SourceText.From(code, Encoding.UTF8));
+        context.AddSource($"{info.prefix}ObjectMapper.g.cs", SourceText.From(code, Encoding.UTF8));
     }
 }

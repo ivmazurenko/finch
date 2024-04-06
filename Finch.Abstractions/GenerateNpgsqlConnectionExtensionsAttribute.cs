@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Finch.Abstractions.Npgsql;
+namespace Finch.Abstractions;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class GenerateNpgsqlConnectionExtensionsAttribute : Attribute;

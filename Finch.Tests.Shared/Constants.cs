@@ -1,5 +1,3 @@
-using Finch.Generators.Sqlite.Tests;
-
 namespace Finch.Tests.Shared;
 
 public static class Constants

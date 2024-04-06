@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Finch.Abstractions.Sqlite;
+namespace Finch.Abstractions;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class GenerateSqliteConnectionExtensionsAttribute : Attribute;

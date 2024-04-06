@@ -1,4 +1,4 @@
-namespace Finch.Generators.Shared;
+namespace Finch.Generators;
 
 public class DatabaseSpecificInfo
 {

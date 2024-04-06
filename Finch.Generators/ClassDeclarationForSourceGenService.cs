@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Finch.Generators.Shared;
+namespace Finch.Generators;
 
 public static class ClassDeclarationForSourceGenService
 {

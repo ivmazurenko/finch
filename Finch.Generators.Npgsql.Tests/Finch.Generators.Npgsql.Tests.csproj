@@ -16,8 +16,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Finch.Abstractions.Npgsql\Finch.Abstractions.Npgsql.csproj"/>
-        <ProjectReference Include="..\Finch.Generators.Npgsql\Finch.Generators.Npgsql.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\Finch.Abstractions\Finch.Abstractions.csproj" />
+        <ProjectReference Include="..\Finch.Generators\Finch.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
         <ProjectReference Include="..\Finch.Tests.Shared\Finch.Tests.Shared.csproj"/>
     </ItemGroup>
 

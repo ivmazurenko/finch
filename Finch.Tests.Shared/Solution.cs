@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Finch.Generators.Sqlite.Tests;
+namespace Finch.Tests.Shared;
 
 public static class Solution
 {

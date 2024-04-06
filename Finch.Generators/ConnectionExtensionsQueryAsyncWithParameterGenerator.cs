@@ -4,11 +4,11 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Shared;
+namespace Finch.Generators;
 
-public static class ConnectionExtensionsQueryAsyncGenerator
+public static class ConnectionExtensionsQueryAsyncWithParameterGenerator
 {
-    public static void GenerateQueryAsync(
+    public static void GenerateQueryAsyncWithParameter(
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<TypeDeclarationSyntax> classDeclarations,
@@ -32,13 +32,15 @@ public static class ConnectionExtensionsQueryAsyncGenerator
                       public static async global::System.Threading.Tasks.Task<global::System.Collections.Generic.List<T>> QueryAsync<T>(
                           this {{info.connectionType}} connection,
                           string sql,
-                          CancellationToken cancellationToken = default)
+                          CancellationToken cancellationToken,
+                          params {{info.parameterType}}[] parameters)
                           where T : new()
                       {
                           await connection.OpenAsync(cancellationToken);
                   
                           var items = new global::System.Collections.Generic.List<T>();
                           await using var command = new {{info.commandType}}(sql, connection);
+                          command.Parameters.AddRange(parameters);
                           await using var reader = await command.ExecuteReaderAsync(cancellationToken);
                           while (await reader.ReadAsync(cancellationToken))
                           {
@@ -52,7 +54,8 @@ public static class ConnectionExtensionsQueryAsyncGenerator
                       }
                   }
                   """;
-            context.AddSource($"{info.prefix}ConnectionExtensions.QueryAsync.g.cs",
+            context.AddSource(
+                $"{info.prefix}ConnectionExtensions.QueryAsyncWithParameter.g.cs",
                 SourceText.From(code, Encoding.UTF8));
             break;
         }

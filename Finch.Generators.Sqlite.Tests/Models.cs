@@ -1,4 +1,4 @@
-using Finch.Abstractions.Sqlite;
+using Finch.Abstractions;
 
 namespace Finch.Generators.Sqlite.Tests;
 

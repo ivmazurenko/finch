@@ -7,12 +7,12 @@ database queries mappings.
 
 ## Getting Started
 
-1. Install the Finch NuGet packages for your desired database:
+1. Install the Finch NuGet packages:
     ```bash
-    $ dotnet add package Finch.Abstractions.Sqlserver
-    $ dotnet add package Finch.Generators.Sqlserver
+    $ dotnet add package Finch.Abstractions
+    $ dotnet add package Finch.Generators
     ```
-2. Mark required type as corresponding attribute
+2. Mark the required type with an attribute corresponding to your desired database:
    ```c#
    [GenerateSqlserverConnectionExtensions]
    public class TbUser
@@ -21,7 +21,7 @@ database queries mappings.
       public string name { get; set; }
    }
    ```
-3. Use extension method for your type:
+3. Use the extension method for your type:
 
    ```c#
    var connection = new SqlConnection(connectionString);

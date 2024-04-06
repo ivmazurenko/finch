@@ -1,4 +1,4 @@
-using Finch.Abstractions.Npgsql;
+using Finch.Abstractions;
 
 namespace Finch.Generators.Npgsql.Tests;
 

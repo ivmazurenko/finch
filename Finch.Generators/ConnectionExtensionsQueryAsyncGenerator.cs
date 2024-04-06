@@ -4,11 +4,11 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-namespace Finch.Generators.Shared;
+namespace Finch.Generators;
 
-public static class ConnectionExtensionsQueryAsyncWithParameterGenerator
+public static class ConnectionExtensionsQueryAsyncGenerator
 {
-    public static void GenerateQueryAsyncWithParameter(
+    public static void GenerateQueryAsync(
         SourceProductionContext context,
         Compilation compilation,
         ImmutableArray<TypeDeclarationSyntax> classDeclarations,
@@ -32,15 +32,13 @@ public static class ConnectionExtensionsQueryAsyncWithParameterGenerator
                       public static async global::System.Threading.Tasks.Task<global::System.Collections.Generic.List<T>> QueryAsync<T>(
                           this {{info.connectionType}} connection,
                           string sql,
-                          CancellationToken cancellationToken,
-                          params {{info.parameterType}}[] parameters)
+                          CancellationToken cancellationToken = default)
                           where T : new()
                       {
                           await connection.OpenAsync(cancellationToken);
                   
                           var items = new global::System.Collections.Generic.List<T>();
                           await using var command = new {{info.commandType}}(sql, connection);
-                          command.Parameters.AddRange(parameters);
                           await using var reader = await command.ExecuteReaderAsync(cancellationToken);
                           while (await reader.ReadAsync(cancellationToken))
                           {
@@ -54,8 +52,7 @@ public static class ConnectionExtensionsQueryAsyncWithParameterGenerator
                       }
                   }
                   """;
-            context.AddSource(
-                $"{info.prefix}ConnectionExtensions.QueryAsyncWithParameter.g.cs",
+            context.AddSource($"{info.prefix}ConnectionExtensions.QueryAsync.g.cs",
                 SourceText.From(code, Encoding.UTF8));
             break;
         }

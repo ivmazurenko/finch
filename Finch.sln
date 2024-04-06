@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions.Npgsql", "Finch.Abstractions.Npgsql\Finch.Abstractions.Npgsql.csproj", "{80BBFC36-2661-478E-A47D-3CF5149EB571}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions", "Finch.Abstractions\Finch.Abstractions.csproj", "{80BBFC36-2661-478E-A47D-3CF5149EB571}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Npgsql", "Finch.Generators.Npgsql\Finch.Generators.Npgsql.csproj", "{2251861B-0595-4DCD-8C33-363DCF9BF263}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators", "Finch.Generators\Finch.Generators.csproj", "{2251861B-0595-4DCD-8C33-363DCF9BF263}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Npgsql.Tests", "Finch.Generators.Npgsql.Tests\Finch.Generators.Npgsql.Tests.csproj", "{5077732C-BE6C-43CA-A235-64192C1BD25B}"
 EndProject
@@ -20,29 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MockingDatabase", "MockingD
 		MockingDatabase\mock_database_sqlite.sh = MockingDatabase\mock_database_sqlite.sh
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions.Sqlserver", "Finch.Abstractions.Sqlserver\Finch.Abstractions.Sqlserver.csproj", "{2BA208FD-66A5-4E9B-A016-6B5124789AEA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlserver", "Finch.Generators.Sqlserver\Finch.Generators.Sqlserver.csproj", "{DE7B0238-A698-45F4-80D9-1C96F9EF9915}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlserver.Tests", "Finch.Generators.Sqlserver.Tests\Finch.Generators.Sqlserver.Tests.csproj", "{F8A4483D-498B-4705-A69F-B484F192F522}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{85547894-6CB7-4370-BE6E-6ED7D00DC021}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Finch.Generators.Shared", "Finch.Generators.Shared\Finch.Generators.Shared.shproj", "{E18565B8-1C20-46F3-8573-0DF7FD55CC60}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Abstractions.Sqlite", "Finch.Abstractions.Sqlite\Finch.Abstractions.Sqlite.csproj", "{813E6BA5-B1F5-4209-A016-817FB0566F26}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlite.Tests", "Finch.Generators.Sqlite.Tests\Finch.Generators.Sqlite.Tests.csproj", "{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Sqlite", "Finch.Generators.Sqlite\Finch.Generators.Sqlite.csproj", "{755332AA-544C-4292-A9B6-B40D3F8C1F3C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Generators.Packages.Tests", "Finch.Generators.Packages.Tests\Finch.Generators.Packages.Tests.csproj", "{0B9886A3-8A85-4323-96A3-874A106F8BF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finch.Tests.Shared", "Finch.Tests.Shared\Finch.Tests.Shared.csproj", "{7B45FA8D-F04B-4ED2-9BBF-10DF44739DEF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{EB907B98-FD8A-45CC-A61A-0F2564549C70}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{F41245DA-D7C7-41EA-81FE-8A9FE31F538A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,30 +48,14 @@ Global
 		{5077732C-BE6C-43CA-A235-64192C1BD25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5077732C-BE6C-43CA-A235-64192C1BD25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5077732C-BE6C-43CA-A235-64192C1BD25B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BA208FD-66A5-4E9B-A016-6B5124789AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BA208FD-66A5-4E9B-A016-6B5124789AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BA208FD-66A5-4E9B-A016-6B5124789AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BA208FD-66A5-4E9B-A016-6B5124789AEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE7B0238-A698-45F4-80D9-1C96F9EF9915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE7B0238-A698-45F4-80D9-1C96F9EF9915}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE7B0238-A698-45F4-80D9-1C96F9EF9915}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE7B0238-A698-45F4-80D9-1C96F9EF9915}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A4483D-498B-4705-A69F-B484F192F522}.Release|Any CPU.Build.0 = Release|Any CPU
-		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{813E6BA5-B1F5-4209-A016-817FB0566F26}.Release|Any CPU.Build.0 = Release|Any CPU
 		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{755332AA-544C-4292-A9B6-B40D3F8C1F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B9886A3-8A85-4323-96A3-874A106F8BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0B9886A3-8A85-4323-96A3-874A106F8BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B9886A3-8A85-4323-96A3-874A106F8BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,12 +71,5 @@ Global
 		{00D6CFB7-880A-4EA0-9F83-5F86C98D91D9} = {85547894-6CB7-4370-BE6E-6ED7D00DC021}
 		{0B9886A3-8A85-4323-96A3-874A106F8BF9} = {85547894-6CB7-4370-BE6E-6ED7D00DC021}
 		{7B45FA8D-F04B-4ED2-9BBF-10DF44739DEF} = {85547894-6CB7-4370-BE6E-6ED7D00DC021}
-		{80BBFC36-2661-478E-A47D-3CF5149EB571} = {EB907B98-FD8A-45CC-A61A-0F2564549C70}
-		{813E6BA5-B1F5-4209-A016-817FB0566F26} = {EB907B98-FD8A-45CC-A61A-0F2564549C70}
-		{2BA208FD-66A5-4E9B-A016-6B5124789AEA} = {EB907B98-FD8A-45CC-A61A-0F2564549C70}
-		{2251861B-0595-4DCD-8C33-363DCF9BF263} = {F41245DA-D7C7-41EA-81FE-8A9FE31F538A}
-		{E18565B8-1C20-46F3-8573-0DF7FD55CC60} = {F41245DA-D7C7-41EA-81FE-8A9FE31F538A}
-		{755332AA-544C-4292-A9B6-B40D3F8C1F3C} = {F41245DA-D7C7-41EA-81FE-8A9FE31F538A}
-		{DE7B0238-A698-45F4-80D9-1C96F9EF9915} = {F41245DA-D7C7-41EA-81FE-8A9FE31F538A}
 	EndGlobalSection
 EndGlobal

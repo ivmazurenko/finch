@@ -4,8 +4,8 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
-        <PackageId>Finch.Generators.Npgsql</PackageId>
-        <Version>0.0.104</Version>
+        <PackageId>Finch.Generators</PackageId>
+        <Version>0.0.105</Version>
         <Authors>Ilia Mazurenko</Authors>
         <Company>Empty</Company>
         <Product>Finch</Product>
@@ -28,7 +28,5 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.0"/>
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.3.0"/>
     </ItemGroup>
-
-    <Import Project="..\Finch.Generators.Shared\Finch.Generators.Shared.projitems" Label="Shared"/>
 
 </Project>

@@ -6,12 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Finch.Abstractions.Npgsql" Version="0.0.1"/>
-        <PackageReference Include="Finch.Abstractions.Sqlite" Version="0.0.1"/>
-        <PackageReference Include="Finch.Abstractions.Sqlserver" Version="0.0.1"/>
-        <PackageReference Include="Finch.Generators.Npgsql" Version="0.0.101"/>
-        <PackageReference Include="Finch.Generators.Sqlite" Version="0.0.101"/>
-        <PackageReference Include="Finch.Generators.Sqlserver" Version="0.0.101"/>
+        <PackageReference Include="Finch.Abstractions" Version="0.0.105"/>
+        <PackageReference Include="Finch.Generators" Version="0.0.105"/>
         <PackageReference Include="Npgsql" Version="8.0.2"/>
         <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0"/>
         <PackageReference Include="System.Data.SQLite" Version="1.0.118"/>

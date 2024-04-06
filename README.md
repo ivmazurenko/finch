@@ -12,7 +12,7 @@ database queries mappings.
     $ dotnet add package Finch.Abstractions
     $ dotnet add package Finch.Generators
     ```
-2. Mark the required type with an attribute corresponding to your desired database:
+2. Mark the required type with an [attribute](https://github.com/ivmazurenko/Finch/tree/master/Finch.Abstractions) corresponding to your desired database:
    ```c#
    [GenerateSqlserverConnectionExtensions]
    public class TbUser

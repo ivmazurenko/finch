@@ -1,6 +1,4 @@
-using Finch.Abstractions.Npgsql;
-using Finch.Abstractions.Sqlite;
-using Finch.Abstractions.Sqlserver;
+using Finch.Abstractions;
 
 namespace Finch.Generators.Packages.Tests;
 

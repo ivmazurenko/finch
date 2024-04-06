@@ -35,7 +35,7 @@ public static class GenericMapperGenerator
                 $$"""
                           if(typeof(T) == typeof({{namespaceName}}.{{className}}))
                           {
-                              {{info.prefix}}TypedMapper.Map(item as {{namespaceName}}.{{className}}, reader);
+                              {{info.prefix}}PropertyMapper.Map(item as {{namespaceName}}.{{className}}, reader);
                               return;
                           }
                   """);

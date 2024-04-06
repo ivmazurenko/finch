@@ -51,6 +51,6 @@ public class SqlserverGenerator : IIncrementalGenerator
             info);
 
         GenericMapperGenerator.Generate(context, compilation, classOrRecordDeclarations, info);
-        TypedMapperGenerator.Generate(context, compilation, classOrRecordDeclarations, info);
+        PropertyMapperGenerator.Generate(context, compilation, classOrRecordDeclarations, info);
     }
 }

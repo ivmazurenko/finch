@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Finch.Generators;
 
-public static class TypedMapperGenerator
+public static class PropertyMapperGenerator
 {
     public static void Generate(
         SourceProductionContext context,
@@ -84,7 +84,7 @@ public static class TypedMapperGenerator
                                         else
                                             item.{p.Name} = Convert.ToBoolean(reader["{p.Name}"]);
                                 """;
-                    return $"// CAN NOT PROCESS: {p.Type.ToDisplayString()} -> {p.Name}";
+                    return $"// CAN NOT GENERATE MAPPING FOR: {p.Type.ToDisplayString()} -> {p.Name}";
                 });
 
             var code =
@@ -95,7 +95,7 @@ public static class TypedMapperGenerator
 
                   namespace {{namespaceName}};
 
-                  internal partial class {{info.prefix}}TypedMapper
+                  internal partial class {{info.prefix}}PropertyMapper
                   {
                       public static void Map(
                           {{namespaceName}}.{{className}} item,
@@ -106,7 +106,7 @@ public static class TypedMapperGenerator
                   }
                   """;
 
-            context.AddSource($"{info.prefix}TypedMapper.{className}.g.cs", SourceText.From(code, Encoding.UTF8));
+            context.AddSource($"{info.prefix}PropertyMapper.{className}.g.cs", SourceText.From(code, Encoding.UTF8));
         }
     }
 }
